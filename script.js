@@ -39,7 +39,14 @@ if (startPrompt === "Ja") {
                             alert("Je hebt te veel energie verspilt aan het gevecht jullie zijn beide uigeput en overleden \n Try again");
                         } else if (question == "negeren") {
                             //final
-                            alert("Final");
+                            alert("Er zijn 2 boten aangekomen een kustwacht boot en een smokkelaarsboot.");
+                            question = prompt("Met welke boot ga je mee? kustwacht of Smokkelaar");
+                            question.toLowerCase();
+                            if (question == "kustwacht") {
+                                alert("De kustwacht vond illegale levensmiddelen bij je en heeft je gearresteerd \n Try again")
+                            } else if (question == "smokkelaar") {
+                                alert("Je hebt gewonnen!")
+                            }
                         }
                     }
                 }
@@ -50,17 +57,24 @@ if (startPrompt === "Ja") {
             question.toLowerCase();
             if (question !== "grot") {
                 alert('Je hebt een vriend gevonden die veel spullen heeft en deelt met jou!');
-               question = prompt("Je vertrouwt je gemaakte vriend niet helemaal en besluit zijn spullen te bekijken hij betrapt je. Wat zeg je? \n Beantwoord met leugenaar of zoeken");
+                question = prompt("Je vertrouwt je gemaakte vriend niet helemaal en besluit zijn spullen te bekijken hij betrapt je. Wat zeg je? \n Beantwoord met leugenaar of zoeken");
                 question.toLowerCase()
-               if(question == "leugenaar"){
-                   alert("je vriend is boos op je en loopt weg met zijn spullen. \n Try again");
+                if (question == "leugenaar") {
+                    alert("je vriend is boos op je en loopt weg met zijn spullen. \n Try again");
 
-               }
-               else if(question == "zoeken"){
-                   alert("je vriend helpt je zoeken naar iets");
-                   //FINAL
-                   alert("Final");
-               }
+                } else if (question == "zoeken") {
+                    alert("je vriend helpt je zoeken naar iets");
+                    //FINAL
+                    alert("Er zijn 2 boten aangekomen een kustwacht boot en een smokkelaarsboot.");
+                    question = prompt("Met welke boot ga je mee? kustwacht of Smokkelaar \n Beantwoord met kustwacht of smokkelaar");
+                    question.toLowerCase();
+                    if (question == "kustwacht") {
+                        alert("De kustwacht vond illegale levensmiddelen bij je en heeft je gearresteerd \n Try again")
+                    } else if (question == "smokkelaar") {
+                        alert("Je hebt gewonnen");
+
+                    }
+                }
 
             } else {
                 alert("je bent in de grot gevallen \n Try again");
@@ -86,15 +100,23 @@ if (startPrompt === "Ja") {
                     alert("Je vriend komt niet meer terug van zijn onderzoek.");
                     question = prompt("Ga jij je vriend zoeken of blijf je je zitten \n Beantwoord met zoeken of zitten");
                     question.toLowerCase();
-                    if(question == "zoeken"){
+                    if (question == "zoeken") {
                         alert("je bent opgegeten door een canibaal die in het bos zat \n Try again");
                         location.reload();
-                    }
-                    else if(question == "zitten"){
-                    //FINAL
-                   alert("Final");
+                    } else if (question == "zitten") {
+                        //FINAL
+                        alert("Er zijn 2 boten aangekomen een kustwacht boot en een smokkelaarsboot.");
+                        question = prompt("Met welke boot ga je mee? kustwacht of Smokkelaar \n Beantwoord met kustwacht of smokkelaar");
+                        question.toLowerCase();
+                        if (question == "kustwacht") {
+                            alert("De kustwacht vond illegale levensmiddelen bij je en heeft je gearresteerd \n Try again");
+                            location.reload();
+                        }
+                    } else if (question == "smokkelaar") {
+                        alert("Je hebt gewonnen");
                     }
                 }
+
             } else {
                 alert("je vriend is boos op je geworden en heeft je vermoord om niet de genoeg gedeeld heb \n Try again");
                 location.reload;
