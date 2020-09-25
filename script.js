@@ -1,135 +1,95 @@
-//Start
-var startPrompt = prompt("Ben jij klaar om het avontuur aan te gaan?\n beantwoord dit met Ja of Nee");
+var startPrompt = prompt("Ben je klaar om de game te spelen? \n Beantwoord met ja of nee").toLowerCase();
 
-if (startPrompt === "Ja") {
+if(startPrompt === "ja"){
+    console.log("Level 1"); //LEVEL 1.0
     alert("Je bent aangespoeld op het strand nadat je op een boot zat die gezonken is");
-    var question = prompt("Wat ga je doen? Zoeken naar Levensmiddelen of Overlevenden \n bantwoord met levensmiddelen of overlevenden");
-    question.toLowerCase();
-    if (question === "levensmiddelen") {
+    var question = prompt("Wat ga je doen? Zoeken naar Levensmiddelen of Overlevenden \n bantwoord met levensmiddelen of overlevenden").toLowerCase();
+    if(question == "levensmiddelen"){
+        console.log("Level 2.0");  //LEVEL 2
         alert("Je hebt 10 levensmiddelen gevonden");
-        question = prompt("Je bedenkt een volgende stap. Ga je zoeken naar overlevenden of ga je rusten? \n Beantwoord met overlevenden of uitrusten");
-        question.toLowerCase();
-        if (question == "overlevenden") {
-            alert("Je hebt een vriend gemaakt op het eiland");
-            question = prompt("hij ziet dat je 10 levensmiddelen heeft en vraagt of je deze wilt delen \n Beantwoord met hoeveel jij er wilt delen");
-            parseInt(question);
-            if (question <= 4) {
-                alert("je vriend is boos op je geworden en heeft je vermoord om niet de helft te delen \n Try again");
-                location.reload;
-            } else {
-                alert("je vriend is blij en deelt zijn eten met jou!");
-                question = prompt("Je gaat eten je hebt 3 bananen hoeveel eet je er? \n Beantwoord met een cijfer tussen 0-3");
-                parseInt(question);
-                if (question != 1) {
-                    alert("je hebt teveel eten op \n Try again");
-                    location.reload;
-                } else {
-                    alert('Je hebt genoeg eten over');
-                    question = prompt("Je gaat een sos teken maken in het zand. Pak je 100 kleine stenen of 50 grote? \n Beantwoord met 50 of 100");
-                    parseInt(question);
-                    if (question < 100) {
-                        alert("Omdat je grote stenen koos heb je niet genoeg voor een sos teken ook heb je geen energie meer om verder te gaan \n Try again");
-
-                    } else {
-
-                        alert("je hebt succesvol een sos teken gemaakt!");
-                        question = prompt("Je komt erachter dat je vriend loog tegen je en ook levensmiddelen heeft wat doe je? \n Beantwoord met vechten of negeren");
-                        question.toLowerCase();
-                        if (question == "vechten") {
-                            alert("Je hebt te veel energie verspilt aan het gevecht jullie zijn beide uigeput en overleden \n Try again");
-                        } else if (question == "negeren") {
-                            //final
-                            alert("Er zijn 2 boten aangekomen een kustwacht boot en een smokkelaarsboot.");
-                            question = prompt("Met welke boot ga je mee? kustwacht of Smokkelaar");
-                            question.toLowerCase();
-                            if (question == "kustwacht") {
-                                alert("De kustwacht vond illegale levensmiddelen bij je en heeft je gearresteerd \n Try again")
-                            } else if (question == "smokkelaar") {
-                                alert("Je hebt gewonnen!")
-                            }
-                        }
-                    }
+        question = prompt("Je bedenkt een volgende stap. Ga je zoeken naar overlevenden of ga je rusten? \n Beantwoord met overlevenden of uitrusten").toLowerCase();
+        if(question == "uitrusten"){
+            console.log("LEVEL 3.0"); //LEVEL 3
+            alert("Je bent levensmiddelen kwijtgeraakt tijdens het rusten.");
+            question = prompt("Je hebt er meerdere verloren, je in het begin vond je er 10. Hoeveel heb je er nog?");
+            question = parseInt(question);
+            if(question => 7){
+                console.log("Level 4.0 (FINAL)");//Level 4.0 (FINAL)
+                alert("Je wilt van het eiland af, en maakt een sos teken");
+                if(question != 50){
+                    console.log("//Level 5.0 (WON)") //Level 5.0 (WON)
+                    alert("Je hebt gewonnen");
+                } else{
+                    console.log("//Level 5.0 (LOST)") //Level 5.0 (LOST)
+                    alert("Je hebt verloren! \n Try again")
+                    location.reload()
                 }
+            }else if(question < 7){
+                //Level 4.0 (END).
+                alert("Helaas heb je te weinig over om te overleven. \n Try again.");
+                location.reload();
             }
-        } else if (question == "uitrusten") {
-            alert("Je bent uitgerust om op onderzoek te gaan!");
-            question = prompt("Ga je zoeken naar een grot of overlevenden \n Beantwoord met Overlevenden of Grot \n Beantwoord met grot of overlevenden");
-            question.toLowerCase();
-            if (question !== "grot") {
-                alert('Je hebt een vriend gevonden die veel spullen heeft en deelt met jou!');
-                question = prompt("Je vertrouwt je gemaakte vriend niet helemaal en besluit zijn spullen te bekijken hij betrapt je. Wat zeg je? \n Beantwoord met leugenaar of zoeken");
-                question.toLowerCase()
-                if (question == "leugenaar") {
-                    alert("je vriend is boos op je en loopt weg met zijn spullen. \n Try again");
-
-                } else if (question == "zoeken") {
-                    alert("je vriend helpt je zoeken naar iets");
-                    //FINAL
-                    alert("Er zijn 2 boten aangekomen een kustwacht boot en een smokkelaarsboot.");
-                    question = prompt("Met welke boot ga je mee? kustwacht of Smokkelaar \n Beantwoord met kustwacht of smokkelaar");
-                    question.toLowerCase();
-                    if (question == "kustwacht") {
-                        alert("De kustwacht vond illegale levensmiddelen bij je en heeft je gearresteerd \n Try again")
-                    } else if (question == "smokkelaar") {
-                        alert("Je hebt gewonnen");
-
-                    }
+            
+        }else if (question == "overlevenden"){
+            console.log("LEVEL 3.0"); //LEVEL 3
+            alert("Je hebt een vriend gemaakt op het eiland.");
+            question = prompt("Hij wilt graag dat jij je levensmiddelen deelt. Hoeveel deel jij? \n Je hebt 10 levensmiddelen.");
+            if(question <= 4){
+                console.log("Level 4.0 (END)"); //Level 4 (END).
+                alert("Helaas heb je te weinig over om te overleven. \n Try again.");
+                location.reload();
+            }else if(question > 4){
+                //Level 4.0 (FINAL)
+               question =  prompt("Je wilt van het eiland af, en maakt een sos teken \n Kies aantal stenen dat je gebruikt! 25, 50, 75 of 100.");
+                question = parseInt(question);
+                if(question != 50){
+                    console.log("//Level 5.0 (WON)") //Level 5.0 (WON)
+                    alert("Je hebt gewonnen");
+                } else{
+                    console.log("//Level 5.0 (LOST)") //Level 5.0 (LOST)
+                    alert("Je hebt verloren! \n Try again")
+                    location.reload()
                 }
-
-            } else {
-                alert("je bent in de grot gevallen \n Try again");
-                location.reload;
             }
         }
-    } else if (question === "overlevenden") {
+    } else if(question == "overlevenden"){
+        console.log("Level 2.1"); //Level 2.1
         alert("Je hebt een vriend gemaakt op het eiland");
-        question = prompt("Ga je zoeken naar levensmiddelen of ga je uitrusten? \n Beantwoord met levensmiddelen of uitrusten");
-        question.toLowerCase();
-        if (question == "levensmiddelen") {
-            alert("Je hebt 10 levensmiddelen gevonden!");
-            question = prompt("Je gemaakte vriend wilt dat je dit deelt, deel jij? \n Beantwoord met hoeveel jij er deelt");
-            parseInt(question);
-            if (question >= 5) {
-                alert("je vriend is blij en deelt zijn eten met jou!");
-                question = prompt("Je gaat een sos teken maken in het zand. Pak je 100 kleine stenen of 50 grote? \n Beantwoord met 50 of 100");
-                parseInt(question);
-                if (question < 99) {
-                    alert("Je hebt te veel energie verspilt aan de grote rotsen \n Try again");
-                    location.reload;
-                } else {
-                    alert("Je vriend komt niet meer terug van zijn onderzoek.");
-                    question = prompt("Ga jij je vriend zoeken of blijf je je zitten \n Beantwoord met zoeken of zitten");
-                    question.toLowerCase();
-                    if (question == "zoeken") {
-                        alert("je bent opgegeten door een canibaal die in het bos zat \n Try again");
-                        location.reload();
-                    } else if (question == "zitten") {
-                        //FINAL
-                        alert("Er zijn 2 boten aangekomen een kustwacht boot en een smokkelaarsboot.");
-                        question = prompt("Met welke boot ga je mee? kustwacht of Smokkelaar \n Beantwoord met kustwacht of smokkelaar");
-                        question.toLowerCase();
-                        if (question == "kustwacht") {
-                            alert("De kustwacht vond illegale levensmiddelen bij je en heeft je gearresteerd \n Try again");
-                            location.reload();
-                        }
-                    } else if (question == "smokkelaar") {
-                        alert("Je hebt gewonnen");
-                    }
+        question = prompt("Ga je zoeken naar levensmiddelen of ga je uitrusten? \n Beantwoord met levensmiddelen of uitrusten").toLowerCase();
+        if(question == "levensmiddelen"){
+            console.log("Level 3");//LEVEL 3
+            alert("Je vind levensmiddelen samen met je vriend vinden jullie 16 levensmiddelen.");
+            question = prompt("Je wilt zelf meer hebben omdat jij hem heb geholpen hij denkt er anders over. \n Hij gaat rusten, jij steelt van zijn 10 pillen hoeveel pak je er?");
+            question = parseInt(question);
+            if(question => 5){
+                console.log("Level 4"); //LEVEL 4 (END).
+                alert("Je hebt teveel gestollen en hij merkt het en is boos. Je raakt in een gevecht en verliest. \n Try again");
+                location.reload();
+            } else if (question < 5){
+               console.log("level 4 FINAL") //Level 4.0 (FINAL)
+                alert("Je wilt van het eiland af, en maakt een sos teken");
+                question = prompt("Wil je gebruik maken van 50 kleine stenen of 25 grote?");
+                question = parseInt(question);
+                if(question != 50){
+                    console.log("//Level 5.0 (WON)") //Level 5.0 (WON)
+                    alert("Je hebt gewonnen");
+                } else{
+                    console.log("//Level 5.0 (LOST)") //Level 5.0 (LOST)
+                    alert("Je hebt verloren! \n Try again")
+                    location.reload()
                 }
-
-            } else {
-                alert("je vriend is boos op je geworden en heeft je vermoord om niet de genoeg gedeeld heb \n Try again");
-                location.reload;
             }
-        } else if (question == "uitrusten") {
-            alert("Je vriend heeft je vermoord in je slaap omdat je hem niet wou helpen. \n Try again");
-            location.reload;
+            }else if(question == "uitrusten"){
+            console.log("Level 3 END");//LEVEL 3 (END).
+            alert("Helaas heb je vriend wilt niet dat je zo lui bent!. \n Try again.");
+            location.reload();
         }
+    }else if(startPrompt === "nee"){
+        location.reload();
     }
 
-
-
-
-} else {
-    location.reload();
 }
+
+
+
+
